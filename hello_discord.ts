@@ -61,6 +61,7 @@ async function home(request: Request) {
       type: 4,
       data: {
         content: `Hello, ${value}!`,
+        flags: 64
       },
     });
   }
