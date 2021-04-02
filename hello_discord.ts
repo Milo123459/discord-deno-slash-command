@@ -52,6 +52,7 @@ async function home(request: Request) {
 
   // Type 2 in a request is an ApplicationCommand interaction.
   // It implies that a user has issued a command.
+  console.log(data)
   if (type === 2) {
     const { value } = data.options.find((option: { name: string }) => option.name === "name");
     return json({
