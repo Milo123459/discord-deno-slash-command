@@ -58,7 +58,7 @@ async function home(request: Request) {
     return json({
       // Type 4 reponds with the below message retaining the user's
       // input at the top.
-      type: 3,
+      type: 5,
       data: {
         content: `Hello, ${value}!`,
       },
