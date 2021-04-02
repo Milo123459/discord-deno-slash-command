@@ -41,7 +41,7 @@ async function home(request: Request) {
     );
   }
 
-  const { type = 0, data } = JSON.parse(body);
+  const { type = 0, data = { options: [] } } = JSON.parse(body);
   // Discord performs Ping interactions to test our application.
   // Type 1 in a request implies a Ping interaction.
   if (type === 1) {
@@ -52,7 +52,7 @@ async function home(request: Request) {
 
   // Type 2 in a request is an ApplicationCommand interaction.
   // It implies that a user has issued a command.
-  console.log(data)
+  console.log(data.member)
   if (type === 2) {
     const { value } = data.options.find((option: { name: string }) => option.name === "name");
     return json({
@@ -61,7 +61,7 @@ async function home(request: Request) {
       type: 4,
       data: {
         content: `Hello, ${value}!`,
-        flags: 64
+      //  flags: 64
       },
     });
   }
